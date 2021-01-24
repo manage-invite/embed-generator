@@ -61,8 +61,8 @@ $(document).ready(function () {
             $('.embed-inner').append('<div class="fields"></div>');
         }
 
-        for (var _iterator = embed.fields, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-            var _ref;
+        for (let _iterator = embed.fields, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+            let _ref;
 
             if (_isArray) {
                 if (_i >= _iterator.length) break;
@@ -73,7 +73,7 @@ $(document).ready(function () {
                 _ref = _i.value;
             }
 
-            var field = _ref;
+            let field = _ref;
 
             $('.embed-inner .fields').append('\n        <div class="field ' + (field.inline && 'inline') + '">\n          <div class="field-name">' + field.name + '</div>\n          <div class="field-value">' + converter.makeHtml(field.value) + '</div>\n        </div>\n      ');
 
@@ -95,7 +95,7 @@ $(document).ready(function () {
         // generate inputs for fields
         $('.input-fields').html('');
 
-        var _loop = function _loop(i) {
+        let _loop = function _loop(i) {
             $('.input-fields').append('<div class="form-group row">\n        <div class="col-sm-4">\n          <input class="form-control" id="field-' + i + '-name" type="text" placeholder="name" value="' + (embed.fields[i].name !== undefined ? embed.fields[i].name : '') + '" />\n        </div>\n        <div class="col-sm-4">\n          <input class="form-control" id="field-' + i + '-value" type="text" placeholder="value" value="' + (embed.fields[i].value !== undefined ? embed.fields[i].value : '') + '" />\n        </div>\n        <div class="col-sm-2">\n          <div class="form-check">\n            <label class="form-check-label">\n              <input class="form-check-input" id="field-' + i + '-inline" type="checkbox" ' + (embed.fields[i].inline !== undefined ? 'checked="checked"' : '') + '> Inline\n            </label>\n          </div>\n        </div>\n        <div class="col-sm-2">\n          <button id="field-' + i + '-delete" class="btn btn-danger">Delete</button>\n        </div>\n      </div>');
             $('#field-' + i + '-name').keyup(function () {
                 updateFieldName(i, $('#field-' + i + '-name').val());
@@ -115,7 +115,7 @@ $(document).ready(function () {
             });
         };
 
-        for (var i = 0; i < fields; i++) {
+        for (let i = 0; i < fields; i++) {
             _loop(i);
         }
 
@@ -225,16 +225,16 @@ $(document).ready(function () {
     }
 
     $('#title').keyup(function () {
-        var item = $('#title');
-        var title = item.val();
+        let item = $('#title');
+        let title = item.val();
 
         // update
         updateTitle(title);
     });
 
     $('#url').keyup(function () {
-        var item = $('#url');
-        var url = item.val();
+        let item = $('#url');
+        let url = item.val();
 
         if (url.substr(0, 4) !== 'http' && url.length !== 0) {
         addWarning(item, 'url', 'not a valid url');
@@ -246,8 +246,8 @@ $(document).ready(function () {
     });
 
     $('#icon').keyup(function () {
-        var item = $('#icon');
-        var icon = item.val();
+        let item = $('#icon');
+        let icon = item.val();
 
         if (icon.substr(0, 4) !== 'http' && icon.length !== 0 ) {
         addWarning(item, 'icon', 'not a valid url');
@@ -259,8 +259,8 @@ $(document).ready(function () {
     });
 
     $('#description').keyup(function () {
-        var item = $('#description');
-        var description = item.val();
+        let item = $('#description');
+        let description = item.val();
         addSuccess(item, 'description');
         // update
         updateDescription(description);
@@ -271,8 +271,8 @@ $(document).ready(function () {
     });
 
     $('#author_name').keyup(function () {
-        var item = $('#author_name');
-        var author_name = item.val();
+        let item = $('#author_name');
+        let author_name = item.val();
 
         addSuccess(item, 'author_name');
         // update
@@ -280,8 +280,8 @@ $(document).ready(function () {
     });
 
     $('#author_url').keyup(function () {
-        var item = $('#author_url');
-        var author_url = item.val();
+        let item = $('#author_url');
+        let author_url = item.val();
 
         if (author_url.substr(0, 4) !== 'http' && author_url.length !== 0) {
         addWarning(item, 'author_url', 'not a valid url');
@@ -293,8 +293,8 @@ $(document).ready(function () {
     });
 
     $('#author_icon').keyup(function () {
-        var item = $('#author_icon');
-        var author_icon = item.val();
+        let item = $('#author_icon');
+        let author_icon = item.val();
 
         if (author_icon.substr(0, 4) !== 'http' && author_icon.length !== 0) {
         addWarning(item, 'author_icon', 'not a valid url');
@@ -306,8 +306,8 @@ $(document).ready(function () {
     });
 
     $('#footer').keyup(function () {
-        var item = $('#footer');
-        var footer = item.val();
+        let item = $('#footer');
+        let footer = item.val();
 
         addSuccess(item, 'footer');
         // update
