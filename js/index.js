@@ -114,6 +114,16 @@ $(document).ready(function () {
 
     generateInputFields(fields)
 
+    function copySource () {
+        const secondsElement = document.querySelector('#copy-input')
+        secondsElement.setAttribute('type', 'text')
+        secondsElement.setAttribute('value', JSON.stringify(embed))
+        secondsElement.select()
+        document.execCommand('copy')
+        secondsElement.setAttribute('type', 'hidden')
+        window.getSelection().removeAllRanges()
+    }
+
     function updateFieldName (index, value) {
         embed.fields[index].name = value
         updateEmbed(embed)
@@ -209,6 +219,11 @@ $(document).ready(function () {
         item.parent().removeClass('has-warning')
         $('#' + type + '-feedback').remove()
     }
+
+    $('#copy-source').click(function (e) {
+        e.preventDefault()
+        copySource()
+    })
 
     $('#title').keyup(function () {
         const item = $('#title')
