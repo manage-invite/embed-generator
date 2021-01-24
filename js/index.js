@@ -1,13 +1,12 @@
 'use strict';
 
 $(document).ready(function () {
-    var converter = new showdown.Converter();
+    const converter = new showdown.Converter();
 
     var switches = {
         title: false,
         url: false,
-        icon: false,
-        useVars: false
+        icon: false
     };
 
     var fields = 1;
@@ -243,7 +242,7 @@ $(document).ready(function () {
         var item = $('#url');
         var url = item.val();
 
-        if (url.substr(0, 4) !== 'http' && url.length !== 0 && !switches.useVars) {
+        if (url.substr(0, 4) !== 'http' && url.length !== 0) {
         addWarning(item, 'url', 'not a valid url');
         } else {
         addSuccess(item, 'url');
@@ -256,7 +255,7 @@ $(document).ready(function () {
         var item = $('#icon');
         var icon = item.val();
 
-        if (icon.substr(0, 4) !== 'http' && icon.length !== 0 && !switches.useVars) {
+        if (icon.substr(0, 4) !== 'http' && icon.length !== 0 ) {
         addWarning(item, 'icon', 'not a valid url');
         } else {
         addSuccess(item, 'icon');
@@ -290,7 +289,7 @@ $(document).ready(function () {
         var item = $('#author_url');
         var author_url = item.val();
 
-        if (author_url.substr(0, 4) !== 'http' && author_url.length !== 0 && !switches.useVars) {
+        if (author_url.substr(0, 4) !== 'http' && author_url.length !== 0) {
         addWarning(item, 'author_url', 'not a valid url');
         } else {
         addSuccess(item, 'author_url');
@@ -303,7 +302,7 @@ $(document).ready(function () {
         var item = $('#author_icon');
         var author_icon = item.val();
 
-        if (author_icon.substr(0, 4) !== 'http' && author_icon.length !== 0 && !switches.useVars) {
+        if (author_icon.substr(0, 4) !== 'http' && author_icon.length !== 0) {
         addWarning(item, 'author_icon', 'not a valid url');
         } else {
         addSuccess(item, 'author_icon');
@@ -319,10 +318,5 @@ $(document).ready(function () {
         addSuccess(item, 'footer');
         // update
         updateFooter(footer);
-    });
-
-    $('#useVars').click(function () {
-        switches.useVars = !switches.useVars;
-        updateEmbed(embed);
     });
 });
