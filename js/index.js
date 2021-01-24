@@ -222,8 +222,8 @@ $(document).ready(function () {
         const item = $('#url')
         const url = item.val()
 
-        if (url.substr(0, 4) !== 'http' && url.length !== 0) {
-            addWarning(item, 'url', 'not a valid url')
+        if (url.substr(0, 4) !== 'http' && url.length !== 0 && !url.startsWith('{')) {
+            addWarning(item, 'url', 'not a valid url or a valid variable')
         } else {
             addSuccess(item, 'url')
             // update
@@ -235,8 +235,8 @@ $(document).ready(function () {
         const item = $('#icon')
         const icon = item.val()
 
-        if (icon.substr(0, 4) !== 'http' && icon.length !== 0) {
-            addWarning(item, 'icon', 'not a valid url')
+        if (icon.substr(0, 4) !== 'http' && icon.length !== 0 && !icon.startsWith('{')) {
+            addWarning(item, 'icon', 'not a valid url or a valid variable')
         } else {
             addSuccess(item, 'icon')
             // update
@@ -269,8 +269,8 @@ $(document).ready(function () {
         const item = $('#author_url')
         const authorURL = item.val()
 
-        if (authorURL.substr(0, 4) !== 'http' && authorURL.length !== 0) {
-            addWarning(item, 'author_url', 'not a valid url')
+        if (authorURL.substr(0, 4) !== 'http' && authorURL.length !== 0 && !authorURL.startsWith('{')) {
+            addWarning(item, 'author_url', 'not a valid url or a valid variable')
         } else {
             addSuccess(item, 'author_url')
             // update
@@ -282,8 +282,8 @@ $(document).ready(function () {
         const item = $('#author_icon')
         const authorIcon = item.val()
 
-        if (authorIcon.substr(0, 4) !== 'http' && authorIcon.length !== 0) {
-            addWarning(item, 'author_icon', 'not a valid url')
+        if (authorIcon.substr(0, 4) !== 'http' && authorIcon.length !== 0 && !authorIcon.startsWith('{')) {
+            addWarning(item, 'author_icon', 'not a valid url or a valid variable')
         } else {
             addSuccess(item, 'author_icon')
             // update
