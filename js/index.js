@@ -11,12 +11,12 @@ $(document).ready(function () {
 
     var fields = 1;
 
-    var embed = {
+    const embed = {
         title: '',
         author: {
-        name: '',
-        url: '',
-        icon: ''
+            name: '',
+            url: '',
+            icon: ''
         },
         description: '',
         url: '',
