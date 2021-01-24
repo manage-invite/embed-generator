@@ -148,3 +148,7 @@ a.patreon-link {
     margin-top: 6px;
     word-wrap: break-word;
 }
+
+.btn#add-field {
+    margin-bottom: 20px;
+}
