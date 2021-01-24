@@ -3,13 +3,7 @@
 $(document).ready(function () {
     const converter = new showdown.Converter();
 
-    var switches = {
-        title: false,
-        url: false,
-        icon: false
-    };
-
-    var fields = 1;
+    let fields = 1;
 
     const embed = {
         title: '',
