@@ -1,3 +1,7 @@
+.container {
+    margin-top: 10px !important;
+}
+
 .preview {
     background: #36393e;
     display: -webkit-box;
