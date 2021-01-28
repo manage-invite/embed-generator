@@ -166,3 +166,7 @@ a.patreon-link {
     display: table-cell;
     visibility: hidden;
 }
+
+.select {
+    cursor: pointer;
+}
