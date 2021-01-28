@@ -152,3 +152,17 @@ a.patreon-link {
 .btn#add-field {
     margin-bottom: 20px;
 }
+
+.splitscreen {
+    display: table;
+}
+.splitscreen .left {
+    margin-right: 10px;
+    display: table-cell;
+    width: 300px;
+}
+.splitscreen .right {
+    width: 400px;
+    display: table-cell;
+    visibility: hidden;
+}

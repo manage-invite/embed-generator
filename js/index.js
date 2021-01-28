@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     let fields = 1
 
-    const embed = {
+    let embed = {
         title: '',
         author: {
             name: '',
@@ -219,6 +219,28 @@ $(document).ready(function () {
         item.parent().removeClass('has-warning')
         $('#' + type + '-feedback').remove()
     }
+
+    $('#select-edit').click(function (e) {
+        document.getElementById('edit-input').style.visibility = 'visible'
+    })
+
+    $('#edit-input').keyup(function () {
+        const value = document.getElementById('edit-input').value
+        try {
+            embed = JSON.parse(value)
+            updateEmbed(embed)
+            generateInputFields(embed.fields.length)
+            $('#title').get(0).value = embed.title || ''
+            $('#url').get(0).value = embed.url || ''
+            $('#icon').get(0).value = embed.author.icon || ''
+            $('#author_name').get(0).value = embed.author.name || ''
+            $('#author_url').get(0).value = embed.author.url || ''
+            $('#description').get(0).value = embed.description || ''
+            $('#color').get(0).value = embed.color || ''
+            $('#footer').get(0).value = embed.footer || ''
+        } catch (e) {
+        }
+    })
 
     $('#copy-source').click(function (e) {
         e.preventDefault()
