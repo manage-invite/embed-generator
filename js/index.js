@@ -44,7 +44,10 @@ $(document).ready(function () {
         }
 
         if (embed.author.name) {
-            $('.embed-title').before('<div class="embed-author"><a class="embed-author-name" href="' + embed.author.url + '">' + embed.author.name + '</a></div>')
+            const content = '<div class="embed-author"><a class="embed-author-name" href="' + embed.author.url + '">' + embed.author.name + '</a></div>'
+            const titleExists = document.getElementsByClassName('embed-title').length > 0
+            if (titleExists) $('.embed-title').before(content)
+            else $('.embed-inner').append(content)
         }
 
         if (embed.author.icon) {
