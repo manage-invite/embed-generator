@@ -10,11 +10,11 @@ $(document).ready(function () {
         author: {
             name: '',
             url: '',
-            icon: ''
+            icon_url: ''
         },
         description: '',
         url: '',
-        thumb_url: '',
+        thumbnail: '',
         color: '',
         fields: [{}],
         footer: ''
@@ -50,13 +50,13 @@ $(document).ready(function () {
             else $('.embed-inner').append(content)
         }
 
-        if (embed.author.icon) {
-            $('.embed-author-name').before('<img class="embed-author-icon" src="' + embed.author.icon + '" />')
+        if (embed.author.icon_url) {
+            $('.embed-author-name').before('<img class="embed-author-icon" src="' + embed.author.icon_url + '" />')
         }
 
-        if (embed.thumb_url) {
+        if (embed.thumbnail) {
         // add thumbnail
-            $('.card.embed .card-block').append('<img class="embed-thumb" src="' + embed.thumb_url + '" />')
+            $('.card.embed .card-block').append('<img class="embed-thumb" src="' + embed.thumbnail + '" />')
             $('.embed-thumb').height($('.embed-thumb')[0].naturalHeight)
         }
 
@@ -166,7 +166,7 @@ $(document).ready(function () {
     }
 
     function updateThumb (value) {
-        embed.thumb_url = value || false
+        embed.thumbnail = value || false
         updateEmbed(embed)
     }
 
@@ -191,7 +191,7 @@ $(document).ready(function () {
     }
 
     function updateAuthorIcon (value) {
-        embed.author.icon = value || ''
+        embed.author.icon_url = value || ''
         updateEmbed(embed)
     }
 
@@ -235,7 +235,8 @@ $(document).ready(function () {
             generateInputFields(embed.fields.length)
             $('#title').get(0).value = embed.title || ''
             $('#url').get(0).value = embed.url || ''
-            $('#icon').get(0).value = embed.author.icon || ''
+            $('#icon').get(0).value = embed.thumbnail || ''
+            $('#author_icon').get(0).value = embed.author.icon_url || ''
             $('#author_name').get(0).value = embed.author.name || ''
             $('#author_url').get(0).value = embed.author.url || ''
             $('#description').get(0).value = embed.description || ''
