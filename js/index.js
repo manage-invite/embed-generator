@@ -65,7 +65,7 @@ $(document).ready(function () {
         }
 
         if (embed.fields) {
-            embeds.fields.filter((f) => f.name && f.value).forEach((field) => {
+            embed.fields.filter((f) => f.name && f.value).forEach((field) => {
                 $('.embed-inner .fields').append('\n        <div class="field ' + (field.inline && 'inline') + '">\n          <div class="field-name">' + field.name + '</div>\n          <div class="field-value">' + converter.makeHtml(field.value) + '</div>\n        </div>\n      ')
             })
         }
