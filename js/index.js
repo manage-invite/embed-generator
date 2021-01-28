@@ -43,14 +43,14 @@ $(document).ready(function () {
             $('.side-colored').css('background-color', embed.color)
         }
 
-        if (embed.author.name) {
-            const content = '<div class="embed-author"><a class="embed-author-name" href="' + embed.author.url + '">' + embed.author.name + '</a></div>'
+        if (embed.author && embed.author.name) {
+            const content = '<div class="embed-author"><a class="embed-author-name" href="' + (embed.author ? embed.author.url : null) + '">' + embed.author.name + '</a></div>'
             const titleExists = document.getElementsByClassName('embed-title').length > 0
             if (titleExists) $('.embed-title').before(content)
             else $('.embed-inner').append(content)
         }
 
-        if (embed.author.icon_url) {
+        if (embed.author && embed.author.icon_url) {
             $('.embed-author-name').before('<img class="embed-author-icon" src="' + embed.author.icon_url + '" />')
         }
 
@@ -60,13 +60,15 @@ $(document).ready(function () {
             $('.embed-thumb').height($('.embed-thumb')[0].naturalHeight)
         }
 
-        if (embed.fields.length > 0) {
+        if (embed.fields && embed.fields.length > 0) {
             $('.embed-inner').append('<div class="fields"></div>')
         }
 
-        embed.fields.filter((f) => f.name && f.value).forEach((field) => {
-            $('.embed-inner .fields').append('\n        <div class="field ' + (field.inline && 'inline') + '">\n          <div class="field-name">' + field.name + '</div>\n          <div class="field-value">' + converter.makeHtml(field.value) + '</div>\n        </div>\n      ')
-        })
+        if (embed.fields) {
+            embeds.fields.filter((f) => f.name && f.value).forEach((field) => {
+                $('.embed-inner .fields').append('\n        <div class="field ' + (field.inline && 'inline') + '">\n          <div class="field-name">' + field.name + '</div>\n          <div class="field-value">' + converter.makeHtml(field.value) + '</div>\n        </div>\n      ')
+            })
+        }
 
         if (embed.footer) {
             $('.card.embed').append('<div class="embed-footer"><span>' + embed.footer + '</span></div>')
@@ -232,16 +234,16 @@ $(document).ready(function () {
         try {
             embed = JSON.parse(value)
             updateEmbed(embed)
-            generateInputFields(embed.fields.length)
-            $('#title').get(0).value = embed.title || ''
-            $('#url').get(0).value = embed.url || ''
-            $('#icon').get(0).value = embed.thumbnail || ''
-            $('#author_icon').get(0).value = embed.author.icon_url || ''
-            $('#author_name').get(0).value = embed.author.name || ''
-            $('#author_url').get(0).value = embed.author.url || ''
-            $('#description').get(0).value = embed.description || ''
-            $('#color').get(0).value = embed.color || ''
-            $('#footer').get(0).value = embed.footer || ''
+            generateInputFields(embed.fields ? embeds.fields.length : 0)
+            $('#title').get(0).value = embed.title || null
+            $('#url').get(0).value = embed.url || null
+            $('#icon').get(0).value = embed.thumbnail || null
+            $('#author_icon').get(0).value = (embed.author ? embed.author.icon_url : null) || null
+            $('#author_name').get(0).value = (embed.author ? embed.author.name : null) || null
+            $('#author_url').get(0).value = (embed.author ? embed.author.url : null) || null
+            $('#description').get(0).value = embed.description || null
+            $('#color').get(0).value = embed.color || null
+            $('#footer').get(0).value = embed.footer || null
         } catch (e) {
         }
     })
