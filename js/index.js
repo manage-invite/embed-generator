@@ -17,7 +17,9 @@ $(document).ready(function () {
         thumbnail: '',
         color: '',
         fields: [{}],
-        footer: ''
+        footer: {
+            text: ''
+        }
     }
 
     function resetEmbed () {
@@ -70,8 +72,8 @@ $(document).ready(function () {
             })
         }
 
-        if (embed.footer) {
-            $('.card.embed').append('<div class="embed-footer"><span>' + embed.footer + '</span></div>')
+        if (embed.footer.text) {
+            $('.card.embed').append('<div class="embed-footer"><span>' + embed.footer.text + '</span></div>')
         }
 
         // code
@@ -198,7 +200,7 @@ $(document).ready(function () {
     }
 
     function updateFooter (value) {
-        embed.footer = value || ''
+        embed.footer.text = value || ''
         updateEmbed(embed)
     }
 
@@ -243,7 +245,7 @@ $(document).ready(function () {
             $('#author_url').get(0).value = (embed.author ? embed.author.url : null) || null
             $('#description').get(0).value = embed.description || null
             $('#color').get(0).value = embed.color || null
-            $('#footer').get(0).value = embed.footer || null
+            $('#footer').get(0).value = embed.footer.text || null
         } catch (e) {
         }
     })
