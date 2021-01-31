@@ -4,7 +4,7 @@
   "description": "![embed](http://i.imgur.com/GemcoBW.png)",
   "main": "index.js",
   "scripts": {
-    "build": "babel js -d dist"
+    "build": "babel src -d build --copy-files"
   },
   "repository": {
     "type": "git",
