@@ -14,7 +14,9 @@ $(document).ready(function () {
         },
         description: '',
         url: '',
-        thumbnail: '',
+        thumbnail: {
+            url: ''
+        },
         color: '',
         fields: [{}],
         footer: {
@@ -56,9 +58,9 @@ $(document).ready(function () {
             $('.embed-author-name').before('<img class="embed-author-icon" src="' + embed.author.icon_url + '" />')
         }
 
-        if (embed.thumbnail) {
-        // add thumbnail
-            $('.card.embed .card-block').append('<img class="embed-thumb" src="' + embed.thumbnail + '" />')
+        if (embed.thumbnail.url) {
+            // add thumbnail
+            $('.card.embed .card-block').append('<img class="embed-thumb" src="' + embed.thumbnail.url + '" />')
             $('.embed-thumb').height($('.embed-thumb')[0].naturalHeight)
         }
 
@@ -170,7 +172,7 @@ $(document).ready(function () {
     }
 
     function updateThumb (value) {
-        embed.thumbnail = value || false
+        embed.thumbnail.url = value || false
         updateEmbed(embed)
     }
 
@@ -240,7 +242,7 @@ $(document).ready(function () {
             generateInputFields(fields);
             $('#title').get(0).value = embed.title || null
             $('#url').get(0).value = embed.url || null
-            $('#icon').get(0).value = embed.thumbnail || null
+            $('#icon').get(0).value = embed.thumbnail.url || null
             $('#author_icon').get(0).value = (embed.author ? embed.author.icon_url : null) || null
             $('#author_name').get(0).value = (embed.author ? embed.author.name : null) || null
             $('#author_url').get(0).value = (embed.author ? embed.author.url : null) || null
