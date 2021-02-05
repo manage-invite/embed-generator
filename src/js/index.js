@@ -240,7 +240,7 @@ $(document).ready(function () {
             const keysToUpdate = Object.keys(embed);
             const newEmbed = JSON.parse(value);
             keysToUpdate.forEach((key) => {
-                if (newEmbed[key]) embed[key] = newEmbed[key];
+                if (newEmbed[key] && (typeof newEmbed[key] === typeof defaultEmbed[key])) embed[key] = newEmbed[key];
                 else embed[key] = defaultEmbed[key];
             });
             updateEmbed(embed)
