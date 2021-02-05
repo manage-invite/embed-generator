@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     let fields = 1
 
-    let embed = {
+    const defaultEmbed = {
         title: '',
         author: {
             name: '',
@@ -22,7 +22,8 @@ $(document).ready(function () {
         footer: {
             text: ''
         }
-    }
+    };
+    let embed = Object.assign({}, defaultEmbed);
 
     function resetEmbed () {
         $('.embed-inner').html('')
@@ -236,7 +237,12 @@ $(document).ready(function () {
     $('#edit-input').keyup(function () {
         const value = document.getElementById('edit-input').value
         try {
-            embed = JSON.parse(value)
+            const keysToUpdate = Object.keys(embed);
+            const newEmbed = JSON.parse(value);
+            keysToUpdate.forEach((key) => {
+                if (newEmbed[key]) embed[key] = newEmbed[key];
+                else embed[key] = defaultEmbed[key];
+            });
             updateEmbed(embed)
             fields = embed.fields ? embed.fields.length : 0;
             generateInputFields(fields);
