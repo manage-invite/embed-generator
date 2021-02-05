@@ -236,7 +236,8 @@ $(document).ready(function () {
         try {
             embed = JSON.parse(value)
             updateEmbed(embed)
-            generateInputFields(embed.fields ? embed.fields.length : 0)
+            fields = embed.fields ? embed.fields.length : 0;
+            generateInputFields(fields);
             $('#title').get(0).value = embed.title || null
             $('#url').get(0).value = embed.url || null
             $('#icon').get(0).value = embed.thumbnail || null
