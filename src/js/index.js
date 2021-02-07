@@ -173,7 +173,7 @@ $(document).ready(function () {
     }
 
     function updateThumb (value) {
-        embed.thumbnail.url = value || false
+        embed.thumbnail.url = value || null
         updateEmbed(embed)
     }
 
@@ -183,7 +183,7 @@ $(document).ready(function () {
     }
 
     function updateColor (value) {
-        embed.color = value || false
+        embed.color = value || '#00FF00'
         updateEmbed(embed)
     }
 
