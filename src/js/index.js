@@ -112,6 +112,7 @@ $(document).ready(function () {
         }
 
         for (let i = 0; i < fields; i++) {
+            if (!embed.fields[i]) return;
             _loop(i)
         }
 
