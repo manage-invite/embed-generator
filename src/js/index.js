@@ -12,7 +12,9 @@ $(document).ready(function () {
             url: '',
             icon_url: ''
         },
-        image: '',
+        image: {
+            url: ''
+        },
         description: '',
         url: '',
         thumbnail: {
