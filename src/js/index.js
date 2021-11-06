@@ -12,6 +12,7 @@ $(document).ready(function () {
             url: '',
             icon_url: ''
         },
+        image: '',
         description: '',
         url: '',
         thumbnail: {
@@ -178,6 +179,11 @@ $(document).ready(function () {
         updateEmbed(embed)
     }
 
+    function updateImage (value) {
+        embed.image.url = value || null
+        updateEmbed(embed)
+    }
+
     function updateDescription (value) {
         embed.description = value || ''
         updateEmbed(embed)
@@ -250,6 +256,7 @@ $(document).ready(function () {
             $('#title').get(0).value = embed.title || null
             $('#url').get(0).value = embed.url || null
             $('#icon').get(0).value = embed.thumbnail.url || null
+            $('#image').get(0).value = embed.image.url || null
             $('#author_icon').get(0).value = (embed.author ? embed.author.icon_url : null) || null
             $('#author_name').get(0).value = (embed.author ? embed.author.name : null) || null
             $('#author_url').get(0).value = (embed.author ? embed.author.url : null) || null
