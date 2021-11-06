@@ -111,7 +111,7 @@ $(document).ready(function () {
             })
         }
 
-        for (let i = 0; i < fields.length; i++) {
+        for (let i = 0; i < fields; i++) {
             _loop(i)
         }
 
