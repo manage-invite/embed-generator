@@ -3,7 +3,7 @@
 $(document).ready(function () {
     const converter = new showdown.Converter()
 
-    let fields = 1
+    let fields = 0
 
     const defaultEmbed = {
         title: '',
@@ -111,7 +111,7 @@ $(document).ready(function () {
             })
         }
 
-        for (let i = 0; i < fields; i++) {
+        for (let i = 0; i < fields.length; i++) {
             _loop(i)
         }
 
