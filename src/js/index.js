@@ -306,6 +306,19 @@ $(document).ready(function () {
         }
     })
 
+    $('#image').keyup(function () {
+        const item = $('#image')
+        const image = item.val()
+
+        if (image.substr(0, 4) !== 'http' && image.length !== 0 && !image.startsWith('{')) {
+            addWarning(item, 'image', 'not a valid url or a valid variable')
+        } else {
+            addSuccess(item, 'image')
+            // update
+            updateImage(image)
+        }
+    })
+
     $('#description').keyup(function () {
         const item = $('#description')
         const description = item.val()
