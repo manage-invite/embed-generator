@@ -17,8 +17,8 @@ $(document).ready(function () {
         thumbnail: {
             url: ''
         },
-        color: '',
-        fields: [{}],
+        color: '#000000',
+        fields: [],
         footer: {
             text: ''
         }
